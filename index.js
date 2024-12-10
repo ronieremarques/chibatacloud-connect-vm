@@ -7,7 +7,11 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.get('/preload', async (req, res) => {
+app.get('/preload/:ip/:usuario/:novaSenha/:AtualSenha/:TokenAuth', async (req, res) => {
+    if (req.params.ip === undefined || req.params.usuario === undefined || req.params.novaSenha === undefined || req.params.AtualSenha === undefined || req.params.TokenAuth === undefined) return res.send('Parâmetros inválidos');
+
+    if (req.params.TokenAuth !== '1234567890') return res.send('Token inválido');
+
     // Executar os comandos de registro antes de chamar o Python
     await new Promise((resolve, reject) => {
         const commands = `
@@ -33,7 +37,7 @@ for /f "tokens=1,2 delims==" %%G in ('cmdkey /list ^| findstr /i "TERMSRV"') do 
     });
 
     // Chamar o script Python para conectar e obter os dados
-    const pythonProcess = await spawn('python3', ['index.py', ipRDP, usuario, novaSenha, `"${senha}"`]); // Passar IP, usuário e nova senha
+    const pythonProcess = await spawn('python3', ['index.py', req.params.ip, req.params.usuario, req.params.novaSenha, req.params.AtualSenha]); // Passar IP, usuário e nova senha
 
     pythonProcess.stdout.on('data', async (data) => {
         const connectionData = JSON.parse(data.toString()); // Parsear os dados recebidos do Python

