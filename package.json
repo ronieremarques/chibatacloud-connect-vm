@@ -1,24 +1,18 @@
 {
-  "name": "darkcloud-selfbot",
+  "name": "chibatacloud",
   "version": "1.0.0",
-  "description": "Selfbot para DarkCloud, a licença é CC0-1.0 mais para a DarkCloud o uso é livre.",
+  "description": "tudo certo aqui;",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "https://github.com/ronieremarquesjs",
+  "author": "https://github.com/ronieremarques",
   "license": "CC0-1.0",
   "dependencies": {
-    "@google/generative-ai": "^0.21.0",
-    "axios": "^1.7.8",
-    "discord.js": "^14.9.0",
-    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
     "localtunnel": "^2.0.2",
-    "node-rdpjs": "^0.3.0",
-    "nodemon": "^3.1.7",
-    "puppeteer": "^23.8.0"
+    "nodemon": "^3.1.7"
   }
 }
